@@ -18,7 +18,7 @@ const conn = net.createConnection({
           conn.write('Move: down');
              }, 600);
              setInterval(() => {
-              conn.write('Move: left');
+              conn.write('Move: right');
                  }, 1000);
   });
     // interpret incoming data as text
