@@ -10,6 +10,16 @@ const conn = net.createConnection({
   conn.on('connect', () => {
     conn.write('Hello from client Layth');
     conn.write('Name: LAY')
+    conn.write('Move: up')
+    setInterval(() => {
+      conn.write('Move: left');
+         }, 400);
+         setInterval(() => {
+          conn.write('Move: down');
+             }, 600);
+             setInterval(() => {
+              conn.write('Move: left');
+                 }, 1000);
   });
     // interpret incoming data as text
     conn.setEncoding('utf8'); 
