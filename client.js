@@ -1,8 +1,9 @@
 const net = require('net');
+const {IP, port} = require("./constants")
 const connect = function() {
 const conn = net.createConnection({ 
-    host: '192.168.15.225', // change to IP address
-    port: '50541'
+    host: IP, // change to IP address
+    port: port
   });
   conn.on('data', (data) => {
     console.log('Server says: ', data);
@@ -10,20 +11,9 @@ const conn = net.createConnection({
   conn.on('connect', () => {
     conn.write('Hello from client Layth');
     conn.write('Name: LAY')
-    conn.write('Move: up')
-    setInterval(() => {
-      conn.write('Move: left');
-         }, 400);
-         setInterval(() => {
-          conn.write('Move: down');
-             }, 600);
-             setInterval(() => {
-              conn.write('Move: right');
-                 }, 1000);
   });
     // interpret incoming data as text
     conn.setEncoding('utf8'); 
-  
     return conn;
   }
   module.exports =  { connect }
